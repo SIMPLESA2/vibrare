@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vibrare</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Vibrare">
+<meta name="application-name" content="Vibrare">
+<meta name="theme-color" content="#04030a">
+<link rel="manifest" href="data:application/json;charset=utf-8,%7B%22name%22%3A%22Vibrare%22%2C%22short_name%22%3A%22Vibrare%22%2C%22description%22%3A%22Viver%20em%20Frequ%C3%AAncia%22%2C%22start_url%22%3A%22.%2F%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%2304030a%22%2C%22theme_color%22%3A%22%2304030a%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI%2BPHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSI4MCIgZmlsbD0iIzA0MDMwYSIvPjxjaXJjbGUgY3g9IjI1NiIgY3k9IjI1NiIgcj0iMTYwIiBmaWxsPSJ1cmwoI2cpIiBvcGFjaXR5PSIwLjMiLz48Y2lyY2xlIGN4PSIyNTYiIGN5PSIyNTYiIHI9IjgwIiBmaWxsPSJ1cmwoI2cyKSIgb3BhY2l0eT0iMC41Ii8%2BPHRleHQgeD0iMjU2IiB5PSIyOTAiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLHNlcmlmIiBmb250LXNpemU9IjE0MCIgZm9udC13ZWlnaHQ9IjQwMCIgZmlsbD0iI2M5YTk2ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zdHlsZT0iaXRhbGljIj5WPC90ZXh0PjxkZWZzPjxyYWRpYWxHcmFkaWVudCBpZD0iZyIgY3g9IjUwJSIgY3k9IjUwJSIgcj0iNTAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjYzlhOTZlIi8%2BPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDQwMzBhIi8%2BPC9yYWRpYWxHcmFkaWVudD48cmFkaWFsR3JhZGllbnQgaWQ9ImcyIiBjeD0iNTAlIiBjeT0iNTAlIiByPSI1MCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNjOWE5NmUiIG9wYWNpdHk9IjAuNiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzA0MDMwYSIgb3BhY2l0eT0iMCIvPjwvcmFkaWFsR3JhZGllbnQ%2BPC9kZWZzPjwvc3ZnPg%3D%3D%22%2C%22sizes%22%3A%22512x512%22%2C%22type%22%3A%22image%2Fsvg%2Bxml%22%7D%5D%7D">
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSI4MCIgZmlsbD0iIzA0MDMwYSIvPjxjaXJjbGUgY3g9IjI1NiIgY3k9IjI1NiIgcj0iMTYwIiBmaWxsPSJ1cmwoI2cpIiBvcGFjaXR5PSIwLjMiLz48Y2lyY2xlIGN4PSIyNTYiIGN5PSIyNTYiIHI9IjgwIiBmaWxsPSJ1cmwoI2cyKSIgb3BhY2l0eT0iMC41Ii8+PHRleHQgeD0iMjU2IiB5PSIyOTAiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLHNlcmlmIiBmb250LXNpemU9IjE0MCIgZm9udC13ZWlnaHQ9IjQwMCIgZmlsbD0iI2M5YTk2ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zdHlsZT0iaXRhbGljIj5WPC90ZXh0PjxkZWZzPjxyYWRpYWxHcmFkaWVudCBpZD0iZyIgY3g9IjUwJSIgY3k9IjUwJSIgcj0iNTAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjYzlhOTZlIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDQwMzBhIi8+PC9yYWRpYWxHcmFkaWVudD48cmFkaWFsR3JhZGllbnQgaWQ9ImcyIiBjeD0iNTAlIiBjeT0iNTAlIiByPSI1MCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNjOWE5NmUiIG9wYWNpdHk9IjAuNiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzA0MDMwYSIgb3BhY2l0eT0iMCIvPjwvcmFkaWFsR3JhZGllbnQ+PC9kZWZzPjwvc3ZnPg==">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #04030a;
+    --surface: rgba(255,255,255,0.03);
+    --border: rgba(255,255,255,0.08);
+    --text: #f2ece0;
+    --muted: rgba(232,224,208,0.82);
+    --accent: #c9a96e;
+    --glow: rgba(201,169,110,0.2);
+    --freq-color: #c9a96e;
+    --freq-glow: rgba(201,169,110,0.35);
+    --orb1: #1a0a2e;
+    --orb2: #0a1a2e;
+    --particle: rgba(201,169,110,0.6);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+    cursor: default;
+  }
+
+  /* ── Canvas de fundo ── */
+  #bg-canvas {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* ── Layout ── */
+  .shell {
+    position: relative;
+    z-index: 1;
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 60px 28px 100px;
+  }
+
+  /* ── Cabeçalho ── */
+  header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+  .logo-mark {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 6px;
+    color: var(--accent);
+    opacity: 0.9;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    display: block;
+  }
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 7vw, 60px);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+    color: var(--text);
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .subtitle {
+    margin-top: 14px;
+    font-size: 15px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  /* ── Campo de intenção ── */
+  .intention-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 32px;
+    margin-bottom: 24px;
+    backdrop-filter: blur(20px);
+    transition: border-color 0.4s;
+  }
+  .intention-box:focus-within {
+    border-color: rgba(201,169,110,0.3);
+    box-shadow: 0 0 40px rgba(201,169,110,0.06);
+  }
+  .intention-label {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: var(--accent);
+    opacity: 1;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    display: block;
+  }
+  textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.6;
+    resize: none;
+    min-height: 90px;
+    caret-color: var(--accent);
+  }
+  textarea::placeholder {
+    color: rgba(232,224,208,0.2);
+    font-style: italic;
+  }
+
+  /* ── Botão invocar ── */
+  .btn-invocar {
+    width: 100%;
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    padding: 18px;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.4s;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-invocar::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+    z-index: -1;
+  }
+  .btn-invocar:hover::before { transform: scaleX(1); }
+  .btn-invocar:hover { color: var(--bg); }
+  .btn-invocar:disabled { opacity: 0.4; cursor: not-allowed; }
+  .btn-invocar:disabled::before { display: none; }
+
+  /* ── Carregando ── */
+  .loading {
+    display: none;
+    text-align: center;
+    padding: 40px;
+  }
+  .loading.active { display: block; }
+  .loading-ring {
+    width: 48px;
+    height: 48px;
+    border: 1px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 1.2s linear infinite;
+    margin: 0 auto 16px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .loading p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--muted);
+  }
+
+  /* ── Resultado ── */
+  #resultado {
+    display: none;
+    animation: fadeUp 0.8s ease forwards;
+  }
+  #resultado.active { display: block; }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── Card de frequência ── */
+  .freq-card {
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .freq-header {
+    padding: 24px 28px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .freq-orb {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    position: relative;
+    animation: pulse-orb 3s ease-in-out infinite;
+  }
+  @keyframes pulse-orb {
+    0%, 100% { transform: scale(1); filter: brightness(1); }
+    50% { transform: scale(1.08); filter: brightness(1.2); }
+  }
+  .freq-info { flex: 1; }
+  .freq-hz {
+    font-family: 'Cinzel', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--freq-color);
+    line-height: 1;
+  }
+  .freq-nome {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--text);
+    margin-top: 4px;
+  }
+  .freq-intent {
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  /* ── Player ── */
+  .player-area {
+    padding: 24px 28px;
+    background: rgba(0,0,0,0.2);
+    border-bottom: 1px solid var(--border);
+  }
+  .waveform {
+    height: 48px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    overflow: hidden;
+  }
+  .wave-bar {
+    flex: 1;
+    background: var(--freq-color);
+    border-radius: 1px;
+    opacity: 0.3;
+    transition: height 0.1s;
+  }
+  .player-controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .btn-play {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid var(--freq-color);
+    background: transparent;
+    color: var(--freq-color);
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    flex-shrink: 0;
+  }
+  .btn-play:hover, .btn-play.active {
+    background: var(--freq-color);
+    color: var(--bg);
+  }
+  .vol-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+  }
+  .vol-label {
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--muted);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  input[type=range] {
+    flex: 1;
+    -webkit-appearance: none;
+    height: 1px;
+    background: var(--border);
+    outline: none;
+    cursor: pointer;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--freq-color);
+    cursor: pointer;
+  }
+  .duration-display {
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    color: var(--muted);
+    min-width: 48px;
+    text-align: right;
+  }
+
+  /* ── Botão binaural ── */
+  .binaural-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 12px;
+    cursor: pointer;
+  }
+  .toggle-track {
+    width: 36px;
+    height: 18px;
+    background: var(--border);
+    border-radius: 9px;
+    position: relative;
+    transition: background 0.3s;
+  }
+  .toggle-track.on { background: var(--freq-color); }
+  .toggle-thumb {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #fff;
+    transition: transform 0.3s;
+  }
+  .toggle-track.on .toggle-thumb { transform: translateX(18px); }
+  .toggle-label {
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  /* ── Seções de insight ── */
+  .insights-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding: 20px 28px;
+  }
+  @media (max-width: 560px) { .insights-grid { grid-template-columns: 1fr; } }
+
+  .insight-block {
+    background: rgba(0,0,0,0.15);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 18px;
+  }
+  .insight-title {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: var(--accent);
+    opacity: 1;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .insight-content {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--text);
+    font-weight: 300;
+  }
+  .insight-content ul {
+    list-style: none;
+    padding: 0;
+  }
+  .insight-content li {
+    padding: 5px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 16px;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  .insight-content li:last-child { border-bottom: none; }
+  .insight-content li::before {
+    content: '◈';
+    color: var(--accent);
+    font-size: 10px;
+    margin-top: 3px;
+    flex-shrink: 0;
+  }
+
+  /* ── Paleta de cor ── */
+  .color-palette {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+  .color-chip {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  .color-chip:hover { transform: scale(1.15); }
+  .color-chip-label {
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 4px;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+  .chip-group { text-align: center; }
+
+  /* ── Frequências adicionais ── */
+  .extra-freqs {
+    padding: 0 28px 24px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .extra-freq-pill {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 12px;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 1px;
+  }
+  .extra-freq-pill:hover {
+    border-color: var(--freq-color);
+    color: var(--freq-color);
+  }
+  .extra-freq-pill.active {
+    background: var(--freq-color);
+    color: var(--bg);
+    border-color: var(--freq-color);
+  }
+
+  /* ── Temporizador ── */
+  .timer-section {
+    padding: 16px 28px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .timer-label {
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .timer-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .timer-btn:hover, .timer-btn.active {
+    border-color: var(--freq-color);
+    color: var(--freq-color);
+  }
+
+  /* ── Afirmação ── */
+  .affirmation-display {
+    text-align: center;
+    padding: 32px 28px;
+    border-top: 1px solid var(--border);
+  }
+  .affirmation-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.5;
+    color: var(--text);
+    opacity: 0.85;
+  }
+  .affirmation-author {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--accent);
+    opacity: 0.6;
+    margin-top: 12px;
+    text-transform: uppercase;
+  }
+
+  /* ── Footer ── */
+  footer {
+    text-align: center;
+    padding-top: 60px;
+    font-size: 11px;
+    color: var(--muted);
+    opacity: 0.4;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+
+<div class="shell">
+  <header>
+    <span class="logo-mark">Vibrare</span>
+    <h1>Viver em <em>Frequência</em></h1>
+    <p class="subtitle">Som puro · Cor vibracional · Alinhamento total</p>
+  </header>
+
+  <div class="intention-box">
+    <span class="intention-label">Qual é a sua intenção hoje?</span>
+    <textarea id="intencao" rows="3" placeholder="Ex: quero atrair prosperidade e abundância… sinto ansiedade e preciso de calma… desejo despertar espiritualmente…"></textarea>
+  </div>
+
+  <button class="btn-invocar" id="btnInvocar" onclick="invocar()">
+    ✦ &nbsp; Invocar Frequência &nbsp; ✦
+  </button>
+
+  <div class="loading" id="loading">
+    <div class="loading-ring"></div>
+    <p>Consultando os campos vibracionais…</p>
+  </div>
+
+  <div id="resultado"></div>
+
+  <footer>Vibrare © 2026 &nbsp;·&nbsp; Som puro gerado em tempo real</footer>
+</div>
+
+<script>
+// ══════════════════════════════════════════════
+//  CANVAS DE FUNDO — partículas e orbs
+// ══════════════════════════════════════════════
+const canvas = document.getElementById('bg-canvas');
+const ctx = canvas.getContext('2d');
+let W, H, particles = [], orbs = [];
+let bgColor1 = '#04030a', bgColor2 = '#04030a';
+
+function resize() {
+  W = canvas.width  = window.innerWidth;
+  H = canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+function initParticles() {
+  particles = [];
+  for (let i = 0; i < 60; i++) {
+    particles.push({
+      x: Math.random() * W,
+      y: Math.random() * H,
+      r: Math.random() * 1.5 + 0.3,
+      vx: (Math.random() - 0.5) * 0.3,
+      vy: (Math.random() - 0.5) * 0.3,
+      a: Math.random(),
+      color: '#c9a96e'
+    });
+  }
+}
+initParticles();
+
+function initOrbs(c1, c2) {
+  bgColor1 = c1 || '#04030a';
+  bgColor2 = c2 || '#04030a';
+  orbs = [
+    { x: W * 0.25, y: H * 0.3, r: 280, color: c1 || '#1a0a2e', a: 0.55 },
+    { x: W * 0.75, y: H * 0.6, r: 220, color: c2 || '#0a1a2e', a: 0.45 },
+  ];
+}
+initOrbs();
+
+function drawBg() {
+  ctx.fillStyle = '#04030a';
+  ctx.fillRect(0, 0, W, H);
+
+  orbs.forEach(o => {
+    const g = ctx.createRadialGradient(o.x, o.y, 0, o.x, o.y, o.r);
+    g.addColorStop(0, hexA(o.color, o.a));
+    g.addColorStop(1, 'transparent');
+    ctx.fillStyle = g;
+    ctx.fillRect(0, 0, W, H);
+  });
+
+  particles.forEach(p => {
+    p.x += p.vx; p.y += p.vy;
+    if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
+    if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
+    p.a = 0.3 + 0.4 * Math.abs(Math.sin(Date.now() * 0.001 + p.x));
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fillStyle = hexA(p.color, p.a);
+    ctx.fill();
+  });
+}
+
+function hexA(hex, a) {
+  const r = parseInt(hex.slice(1,3),16);
+  const g = parseInt(hex.slice(3,5),16);
+  const b = parseInt(hex.slice(5,7),16);
+  return `rgba(${r},${g},${b},${a})`;
+}
+
+function loop() { drawBg(); requestAnimationFrame(loop); }
+loop();
+
+// ══════════════════════════════════════════════
+//  WEB AUDIO ENGINE
+// ══════════════════════════════════════════════
+let audioCtx = null;
+let mainOsc = null, binOsc = null, mainGain = null;
+let isPlaying = false;
+let currentFreq = 528;
+let binauralOn = false;
+let timerTimeout = null;
+let timerSeconds = 0;
+let elapsedInterval = null;
+let elapsed = 0;
+
+function getAudio() {
+  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  return audioCtx;
+}
+
+function startSound(freq, vol, binaural) {
+  stopSound();
+  const ac = getAudio();
+  mainGain = ac.createGain();
+  mainGain.gain.setValueAtTime(0, ac.currentTime);
+  mainGain.gain.linearRampToValueAtTime(vol, ac.currentTime + 0.5);
+  mainGain.connect(ac.destination);
+
+  // Canal esquerdo — frequência pura
+  const merger = ac.createChannelMerger(2);
+  merger.connect(mainGain);
+
+  mainOsc = ac.createOscillator();
+  mainOsc.type = 'sine';
+  mainOsc.frequency.value = freq;
+  const leftGain = ac.createGain(); leftGain.gain.value = 1;
+  mainOsc.connect(leftGain);
+  leftGain.connect(merger, 0, 0);
+  mainOsc.start();
+
+  if (binaural) {
+    // Canal direito — offset binaural (10 Hz para theta profundo)
+    binOsc = ac.createOscillator();
+    binOsc.type = 'sine';
+    binOsc.frequency.value = freq + 10;
+    const rightGain = ac.createGain(); rightGain.gain.value = 1;
+    binOsc.connect(rightGain);
+    rightGain.connect(merger, 0, 1);
+    binOsc.start();
+  } else {
+    // Som puro mono — mesmo tom nos dois canais
+    const rightGain2 = ac.createGain(); rightGain2.gain.value = 1;
+    mainOsc.connect(rightGain2);
+    rightGain2.connect(merger, 0, 1);
+  }
+
+  isPlaying = true;
+  elapsed = 0;
+  elapsedInterval = setInterval(() => {
+    elapsed++;
+    updateDuration();
+  }, 1000);
+}
+
+function stopSound() {
+  if (mainOsc) { try { mainOsc.stop(); } catch(e){} mainOsc = null; }
+  if (binOsc)  { try { binOsc.stop();  } catch(e){} binOsc  = null; }
+  if (mainGain) { mainGain.disconnect(); mainGain = null; }
+  isPlaying = false;
+  clearInterval(elapsedInterval);
+}
+
+function setVolume(v) {
+  if (mainGain) mainGain.gain.setTargetAtTime(v, audioCtx.currentTime, 0.1);
+}
+
+function updateDuration() {
+  const el = document.getElementById('durDisplay');
+  if (el) {
+    const m = String(Math.floor(elapsed/60)).padStart(2,'0');
+    const s = String(elapsed%60).padStart(2,'0');
+    el.textContent = m + ':' + s;
+  }
+}
+
+// ══════════════════════════════════════════════
+//  WAVEFORM ANIMADA
+// ══════════════════════════════════════════════
+let waveInterval = null;
+function startWave() {
+  const bars = document.querySelectorAll('.wave-bar');
+  if (!bars.length) return;
+  waveInterval = setInterval(() => {
+    bars.forEach(b => {
+      const h = isPlaying
+        ? (8 + Math.random() * 34) + 'px'
+        : '4px';
+      b.style.height = h;
+      b.style.opacity = isPlaying ? (0.4 + Math.random() * 0.6) : 0.15;
+    });
+  }, 80);
+}
+function stopWave() { clearInterval(waveInterval); }
+
+// ══════════════════════════════════════════════
+//  INVOCAR — chama a IA
+// ══════════════════════════════════════════════
+async function invocar() {
+  const intencao = document.getElementById('intencao').value.trim();
+  if (!intencao) { alert('Por favor, descreva sua intenção.'); return; }
+
+  document.getElementById('btnInvocar').disabled = true;
+  document.getElementById('loading').classList.add('active');
+  document.getElementById('resultado').classList.remove('active');
+  document.getElementById('resultado').style.display = 'none';
+  stopSound(); stopWave();
+
+  const prompt = `Você é um guia vibracional especialista em frequências sonoras de cura, cromoterapia e práticas de elevação espiritual.
+
+O usuário disse: "${intencao}"
+
+Analise profundamente a intenção e responda SOMENTE com um JSON válido, sem markdown, sem texto extra, neste formato exato:
+
+{
+  "frequencia_hz": 528,
+  "nome_frequencia": "Frequência do Amor e DNA",
+  "intencao_resumida": "Prosperidade e Abundância",
+  "descricao": "Frase poética de 2-3 linhas explicando por que esta frequência serve para esta intenção.",
+  "como_ouvir": "Instrução curta e prática de como usar o som (ex: feche os olhos, respire fundo, visualize...)",
+  "cores_vibracionais": [
+    {"hex": "#FFD700", "nome": "Dourado Solar", "significado": "Atrai riqueza e luz"},
+    {"hex": "#228B22", "nome": "Verde Esmeralda", "significado": "Crescimento e prosperidade"},
+    {"hex": "#8B4513", "nome": "Âmbar Terra", "significado": "Enraizamento e manifestação"}
+  ],
+  "recomendacoes_diarias": [
+    "Recomendação prática 1 alinhada à intenção",
+    "Recomendação prática 2",
+    "Recomendação prática 3",
+    "Recomendação prática 4",
+    "Recomendação prática 5"
+  ],
+  "afirmacao": "Uma afirmação poderosa no presente do indicativo alinhada à intenção",
+  "cristais": "Nome de 2-3 cristais recomendados e por quê",
+  "aromaterapia": "1-2 óleos essenciais ou ervas recomendados",
+  "melhor_horario": "Horário ou momento do dia mais propício para esta prática",
+  "frequencias_complementares": [
+    {"hz": 396, "nome": "Liberação"},
+    {"hz": 639, "nome": "Harmonia"}
+  ],
+  "orb_color_1": "#2a1a4e",
+  "orb_color_2": "#1a3a1a",
+  "accent_color": "#FFD700",
+  "particle_color": "#FFD700"
+}
+
+Escolha a frequência principal mais adequada entre: 174, 285, 396, 417, 432, 528, 639, 741, 852, 963 Hz.
+As cores devem ter correspondência vibracional REAL com a intenção (ex: prosperidade = dourado, verde; amor = rosa, magenta; cura = azul, turquesa; espiritualidade = violeta, índigo).
+Os orb_color_1 e orb_color_2 são cores escuras para o fundo da página, também vibracionalmente coerentes.`;
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        messages: [{ role: 'user', content: prompt }]
+      })
+    });
+    const data = await res.json();
+    const raw = data.content.map(c => c.text || '').join('');
+    const clean = raw.replace(/```json|```/g, '').trim();
+    const j = JSON.parse(clean);
+    renderResultado(j);
+  } catch(e) {
+    document.getElementById('loading').classList.remove('active');
+    document.getElementById('btnInvocar').disabled = false;
+    alert('Erro ao consultar a IA. Verifique sua conexão e tente novamente.\n\n' + e.message);
+  }
+}
+
+// ══════════════════════════════════════════════
+//  RENDERIZAR RESULTADO
+// ══════════════════════════════════════════════
+function renderResultado(j) {
+  document.getElementById('loading').classList.remove('active');
+
+  // Atualiza tema visual
+  const accent = j.accent_color || '#c9a96e';
+  const particle = j.particle_color || '#c9a96e';
+  document.documentElement.style.setProperty('--accent', accent);
+  document.documentElement.style.setProperty('--freq-color', accent);
+  document.documentElement.style.setProperty('--freq-glow', hexToRgba(accent, 0.35));
+  document.documentElement.style.setProperty('--glow', hexToRgba(accent, 0.2));
+  initOrbs(j.orb_color_1, j.orb_color_2);
+  particles.forEach(p => p.color = particle);
+
+  currentFreq = j.frequencia_hz;
+  binauralOn = false;
+
+  // Chips de paleta
+  const chipsHTML = (j.cores_vibracionais || []).map(c => `
+    <div class="chip-group">
+      <div class="color-chip" style="background:${c.hex}" title="${c.significado}"></div>
+      <div class="color-chip-label">${c.nome.split(' ')[0]}</div>
+    </div>
+  `).join('');
+
+  // Frequências complementares
+  const extraHTML = (j.frequencias_complementares || []).map(f => `
+    <button class="extra-freq-pill" onclick="selectExtraFreq(this, ${f.hz})">${f.hz} Hz — ${f.nome}</button>
+  `).join('');
+
+  const html = `
+  <div class="freq-card" id="freqCard">
+    <div class="freq-header">
+      <div class="freq-orb" id="freqOrb" style="background: radial-gradient(circle at 35% 35%, ${accent}88, ${accent}22); box-shadow: 0 0 30px ${hexToRgba(accent,0.4)}"></div>
+      <div class="freq-info">
+        <div class="freq-hz" id="hzDisplay">${j.frequencia_hz} Hz</div>
+        <div class="freq-nome">${j.nome_frequencia}</div>
+        <div class="freq-intent">${j.intencao_resumida}</div>
+      </div>
+    </div>
+
+    <div class="player-area">
+      <div class="waveform" id="waveform">
+        ${Array(40).fill('<div class="wave-bar" style="height:4px"></div>').join('')}
+      </div>
+      <div class="player-controls">
+        <button class="btn-play" id="btnPlay" onclick="togglePlay()">▶</button>
+        <div class="vol-group">
+          <span class="vol-label">Volume</span>
+          <input type="range" min="0" max="1" step="0.01" value="0.5" oninput="setVolume(+this.value)">
+          <span class="duration-display" id="durDisplay">00:00</span>
+        </div>
+      </div>
+      <div class="binaural-toggle" onclick="toggleBinaural()">
+        <div class="toggle-track" id="binToggle"><div class="toggle-thumb"></div></div>
+        <span class="toggle-label">Binaural (fones de ouvido)</span>
+      </div>
+    </div>
+
+    <div class="insights-grid">
+      <div class="insight-block">
+        <div class="insight-title">✦ Por que esta frequência</div>
+        <div class="insight-content">${j.descricao}</div>
+      </div>
+      <div class="insight-block">
+        <div class="insight-title">◈ Como usar</div>
+        <div class="insight-content">${j.como_ouvir}</div>
+      </div>
+      <div class="insight-block">
+        <div class="insight-title">◎ Cores vibracionais</div>
+        <div class="insight-content">
+          <div class="color-palette">${chipsHTML}</div>
+        </div>
+      </div>
+      <div class="insight-block">
+        <div class="insight-title">⟡ Apoios físicos</div>
+        <div class="insight-content">
+          <strong style="font-size:12px;letter-spacing:1px;color:var(--muted)">Cristais:</strong> ${j.cristais}<br><br>
+          <strong style="font-size:12px;letter-spacing:1px;color:var(--muted)">Aromaterapia:</strong> ${j.aromaterapia}<br><br>
+          <strong style="font-size:12px;letter-spacing:1px;color:var(--muted)">Melhor horário:</strong> ${j.melhor_horario}
+        </div>
+      </div>
+    </div>
+
+    <div class="insight-block" style="margin: 0 28px 20px; border-radius:2px;">
+      <div class="insight-title">◈ Práticas para o seu dia</div>
+      <div class="insight-content">
+        <ul>${(j.recomendacoes_diarias||[]).map(r => `<li>${r}</li>`).join('')}</ul>
+      </div>
+    </div>
+
+    ${extraHTML ? `
+    <div style="padding: 0 28px; margin-bottom:20px;">
+      <div class="intention-label" style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:4px;color:var(--accent);opacity:0.8;text-transform:uppercase;margin-bottom:10px;">Frequências complementares</div>
+      <div class="extra-freqs" style="padding:0;">${extraHTML}</div>
+    </div>` : ''}
+
+    <div class="timer-section">
+      <span class="timer-label">Sessão</span>
+      ${[5,10,20,30].map(m => `<button class="timer-btn" onclick="setTimer(${m},this)">${m} min</button>`).join('')}
+      <button class="timer-btn" onclick="setTimer(0,this)">Livre</button>
+    </div>
+
+    <div class="affirmation-display">
+      <div class="affirmation-quote">"${j.afirmacao}"</div>
+      <div class="affirmation-author">— Afirmação vibracional</div>
+    </div>
+  </div>
+  `;
+
+  const res = document.getElementById('resultado');
+  res.innerHTML = html;
+  res.style.display = 'block';
+  setTimeout(() => res.classList.add('active'), 10);
+
+  document.getElementById('btnInvocar').disabled = false;
+  startWave();
+}
+
+// ══════════════════════════════════════════════
+//  CONTROLES
+// ══════════════════════════════════════════════
+function togglePlay() {
+  const btn = document.getElementById('btnPlay');
+  if (isPlaying) {
+    stopSound();
+    btn.textContent = '▶';
+    btn.classList.remove('active');
+  } else {
+    const vol = document.querySelector('input[type=range]')?.value || 0.5;
+    startSound(currentFreq, +vol, binauralOn);
+    btn.textContent = '■';
+    btn.classList.add('active');
+  }
+}
+
+function toggleBinaural() {
+  binauralOn = !binauralOn;
+  const t = document.getElementById('binToggle');
+  t.classList.toggle('on', binauralOn);
+  if (isPlaying) {
+    const vol = document.querySelector('input[type=range]')?.value || 0.5;
+    startSound(currentFreq, +vol, binauralOn);
+  }
+}
+
+function selectExtraFreq(el, hz) {
+  document.querySelectorAll('.extra-freq-pill').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  currentFreq = hz;
+  document.getElementById('hzDisplay').textContent = hz + ' Hz';
+  if (isPlaying) {
+    const vol = document.querySelector('input[type=range]')?.value || 0.5;
+    startSound(hz, +vol, binauralOn);
+  }
+}
+
+function setTimer(min, btn) {
+  document.querySelectorAll('.timer-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  clearTimeout(timerTimeout);
+  if (min > 0) {
+    timerTimeout = setTimeout(() => {
+      stopSound();
+      const playBtn = document.getElementById('btnPlay');
+      if (playBtn) { playBtn.textContent = '▶'; playBtn.classList.remove('active'); }
+    }, min * 60 * 1000);
+  }
+}
+
+function hexToRgba(hex, a) {
+  if (!hex || hex.length < 7) return `rgba(201,169,110,${a})`;
+  const r = parseInt(hex.slice(1,3),16)||0;
+  const g = parseInt(hex.slice(3,5),16)||0;
+  const b = parseInt(hex.slice(5,7),16)||0;
+  return `rgba(${r},${g},${b},${a})`;
+}
+</script>
+</body>
+</html>
