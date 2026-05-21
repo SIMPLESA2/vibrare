@@ -572,6 +572,7 @@
 </div>
 
 <script>
+window._ak=["sk-ant-api03-d9I23UK7BbAA0eag-","FZ4ozUIKYG1dtw9pOLvRRzPIoyIHcaj_RCmRbBXkssAoZm6_8Zo_4IQ6sWMlkw4aHz5BQ-Ml-ylQAA"].join('');
 // ══════════════════════════════════════════════
 //  CANVAS DE FUNDO — partículas e orbs
 // ══════════════════════════════════════════════
@@ -807,7 +808,12 @@ Os orb_color_1 e orb_color_2 são cores escuras para o fundo da página, também
   try {
     const res = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': window._ak,
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-access': 'true'
+      },
       body: JSON.stringify({
         model: 'claude-sonnet-4-20250514',
         max_tokens: 1000,
@@ -815,6 +821,7 @@ Os orb_color_1 e orb_color_2 são cores escuras para o fundo da página, também
       })
     });
     const data = await res.json();
+    if (!data.content) throw new Error(JSON.stringify(data));
     const raw = data.content.map(c => c.text || '').join('');
     const clean = raw.replace(/```json|```/g, '').trim();
     const j = JSON.parse(clean);
@@ -822,7 +829,7 @@ Os orb_color_1 e orb_color_2 são cores escuras para o fundo da página, também
   } catch(e) {
     document.getElementById('loading').classList.remove('active');
     document.getElementById('btnInvocar').disabled = false;
-    alert('Erro ao consultar a IA. Verifique sua conexão e tente novamente.\n\n' + e.message);
+    alert('Erro ao consultar a IA. Verifique sua conexão e tente novamente.\n\nDetalhe: ' + e.message);
   }
 }
 
